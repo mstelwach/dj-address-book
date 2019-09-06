@@ -1,4 +1,4 @@
-# Web-Based Password Manager
+# Django address-book
 
 
 Simple django address-book.
@@ -30,7 +30,7 @@ Simple django address-book.
 * [SQLite] - https://www.sqlite.org/docs.html
 
 ### Installation
-The installation is done by running the script. Before running the script, you must have PostgreSQL database installed.
+The installation is done by running the script.
 
 ##### Script
 
