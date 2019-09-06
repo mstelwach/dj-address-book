@@ -1,0 +1,11 @@
+{% url 'contact:update' record.person.pk as list %}
+
+{% if list in request.get_full_path %}
+
+    <a href="{% url 'contact:phone-update' record.person.pk record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Edit"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+
+    <a href="{% url 'contact:phone-delete' record.person.pk record.pk %}" data-toggle="tooltip" data-placement="bottom"
+      title="Delete"><i class="fa fa-fw fa-trash"></i></a>
+
+{% endif %}

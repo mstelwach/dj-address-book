@@ -1,0 +1,8 @@
+Django
+django-bootstrap4
+django-tables2
+django-bootstrap-pagination
+django-extra-views
+django-autocomplete-light
+django-widget-tweaks
+django-filter

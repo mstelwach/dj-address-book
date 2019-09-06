@@ -1,0 +1,36 @@
+{% extends "dashboard_detail.html" %}
+{% load static %}
+
+{% block detail-header %}Contact Detail {% endblock detail-header %}
+{% block card-nav-upper %}
+
+<div class="row mb-4">
+    <div class="col-sm-12">
+        <div class="float-right">
+{#            <a class="btn btn-secondary" href="{% url 'con:send-password' pk=object.pk %}">Send password</a>#}
+            <a class="btn btn-secondary" href="{% url 'contact:update' pk=object.pk %}">Edit</a>
+
+        </div>
+    </div>
+</div>
+{% endblock card-nav-upper %}
+{% block detail-content %}
+        <div class="form-group row">
+            <div class="col-sm-3">First name:</div>
+            <div class="col-sm-9">{{ object.first_name }}</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">Last name:</div>
+            <div class="col-sm-9">{{ object.last_name }}</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">Phones:</div>
+            <div class="col-sm-9">{{ phones }}</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">Emails:</div>
+            <div class="col-sm-9">{{ emails }}</div>
+        </div>
+
+{% endblock detail-content %}
+

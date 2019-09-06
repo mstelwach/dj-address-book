@@ -1,0 +1,36 @@
+{% extends "test_dashboard.html" %}
+{% load bootstrap4 %}
+{% load render_table from django_tables2 %}
+
+{% block form-header %}Update contact{% endblock form-header %}
+
+{% block form-content %}
+<form action="{{ app_path }}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
+   <div class="float-right">
+        <a href="{% url 'contact:list' %}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+{% endblock form-content %}
+
+{% block table-header %}
+    Phone & E-mail
+
+            <div class="col-sm-auto float-right">
+                <a class="btn btn-secondary" href="{% url 'contact:phone-create' pk=object.pk %}">Add Phone</a>
+
+            </div>
+            <div class="col-sm-auto float-right">
+                <a class="btn btn-secondary" href="{% url 'contact:email-create' pk=object.pk %}">Add Email</a>
+
+            </div>
+
+{% endblock table-header %}
+
+{% block table-render %}
+    {% render_table phone_table %}
+    {% render_table email_table %}
+{% endblock table-render %}

@@ -1,0 +1,21 @@
+{% url 'contact:list' as list %}
+
+{% if list in request.get_full_path %}
+
+    <a href="{% url 'contact:detail' record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Detail"><i class="fa fa-fw fa-info"></i></a>
+
+    <a href="{% url 'contact:update' record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Edit"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+
+    <a href="{% url 'contact:phone-create' record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Add Phone"><i class="fa fa-fw fa-mobile"></i></a>
+
+    <a href="{% url 'contact:email-create' record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Add Email"><i class="fa fa-fw fa-envelope-o"></i></a>
+
+    <a href="{% url 'contact:delete' record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Delete"><i class="fa fa-fw fa-trash"></i></a>
+
+{% endif %}
+
