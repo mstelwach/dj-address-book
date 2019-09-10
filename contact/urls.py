@@ -17,6 +17,11 @@ urlpatterns = [
     url(r'^(?P<pk>[\d]+)/email/create/$', EmailCreateView.as_view(), name='email-create'),
     url(r'^(?P<pk>[\d]+)/email/(?P<pk_2>[\d]+)/update/$', EmailUpdateView.as_view(), name='email-update'),
     url(r'^(?P<pk>[\d]+)/email/(?P<pk_2>[\d]+)/delete/$', EmailDeleteView.as_view(), name='email-delete'),
+    url(r'^(?P<pk>[\d]+)/social-profile/create/$', SocialProfileCreateView.as_view(), name='social-profile-create'),
+    url(r'^(?P<pk>[\d]+)/social-profile/(?P<pk_2>[\d]+)/update/$', SocialProfileUpdateView.as_view(),
+        name='social-profile-update'),
+    url(r'^(?P<pk>[\d]+)/social-profile/(?P<pk_2>[\d]+)/delete/$', SocialProfileDeleteView.as_view(),
+        name='social-profile-delete'),
 ]
 
 autocomplete_url_patterns = [

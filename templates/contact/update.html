@@ -14,23 +14,36 @@
     </div>
 </form>
 
+    <script>
+      $( function() {
+          $('#datepicker').attr('autocomplete', 'off');
+          $("#datepicker").datepicker();
+      } );
+    </script>
+
 {% endblock form-content %}
 
 {% block table-header %}
-    Phone & E-mail
+    Phone & E-mail & Social Profile
 
             <div class="col-sm-auto float-right">
-                <a class="btn btn-secondary" href="{% url 'contact:phone-create' pk=object.pk %}">Add Phone</a>
-
+                <a class="btn btn-secondary" href="{% url 'contact:social-profile-create' pk=object.pk %}">Add Social Profile</a>
             </div>
+
             <div class="col-sm-auto float-right">
                 <a class="btn btn-secondary" href="{% url 'contact:email-create' pk=object.pk %}">Add Email</a>
+            </div>
 
+             <div class="col-sm-auto float-right">
+                <a class="btn btn-secondary" href="{% url 'contact:phone-create' pk=object.pk %}">Add Phone</a>
             </div>
 
 {% endblock table-header %}
 
 {% block table-render %}
     {% render_table phone_table %}
+    <br>
     {% render_table email_table %}
+    <br>
+    {% render_table social_profile_table %}
 {% endblock table-render %}

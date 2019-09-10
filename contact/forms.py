@@ -1,6 +1,6 @@
 from django import forms
 
-from contact.models import Contact, Phone, Email
+from contact.models import Contact, Phone, Email, SocialProfile
 
 
 class ContactCreateUpdateForm(forms.ModelForm):
@@ -26,4 +26,11 @@ class EmailCreateUpdateForm(forms.ModelForm):
 
     class Meta:
         model = Email
+        exclude = ['person']
+
+
+class SocialProfileCreateUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = SocialProfile
         exclude = ['person']
