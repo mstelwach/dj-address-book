@@ -12,9 +12,10 @@
         <button type="submit" class="btn btn-primary" value="save_and_continue" name="save_and_continue">Save and add new</button>
     </div>
 </form>
-
-{#<script>#}
-{#    licByCat();#}
-{#</script>#}
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+    </script>
 
 {% endblock form-content %}

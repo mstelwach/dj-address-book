@@ -14,12 +14,11 @@
 
     {% block stylesheets %}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-          type="text/css">
-    <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
-    <link href="{% static 'css/dj-address-book.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              type="text/css">
+        <link href="{% static 'css/dj-address-book.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
 
     {% endblock stylesheets %}
 
@@ -37,7 +36,7 @@
 </head>
 
 
-<body class="fixed-nav sticky-footer login-bg-image-box" lang="{{LANGUAGE_CODE}}" id="page-top">
+<body class="fixed-nav sticky-footer" lang="{{LANGUAGE_CODE}}" id="page-top">
 
 {% block authenticated %}
 {% endblock authenticated %}
@@ -45,10 +44,12 @@
 {% block unauthenticated %}{% endblock unauthenticated %}
 
 {% block body_scripts %}
-    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
     <!-- Core plugin JavaScript-->
+    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
     <script src="{% static 'js/vendor/jquery.easing.min.js' %}"></script>
     <script src="{% static 'js/vendor/dj-address-book.js' %}}"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {% endblock body_scripts %}
 
 {% block body_scripts_additional %}{% endblock body_scripts_additional %}
