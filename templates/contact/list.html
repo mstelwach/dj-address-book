@@ -36,21 +36,5 @@
 {% endblock table-render %}
 {% block body_scripts_additional %}
     {{ filtered_data.form.media }}
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.licence_sale_date input').attr('autocomplete', 'off');
-            $('#id_date_0').addClass('date_picker');
-            $('#id_date_0').addClass('select2-custom-style');
-            $('#id_date_0').css('margin-right', '10px');
-
-            $('#id_date_1').addClass('date_picker');
-            $('#id_date_1').addClass('select2-custom-style');
-            $('#id_date_1').css('margin-left', '10px');
-            $('#id_date_0').get(0).nextSibling.remove();
-
-        });
-    </script>
 {% endblock body_scripts_additional %}
 </div>

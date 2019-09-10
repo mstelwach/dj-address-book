@@ -1,5 +1,3 @@
-import csv
-
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -8,7 +6,6 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DeleteView, DetailView, UpdateView
 from django_tables2 import RequestConfig
 
-from contact.admin import ContactAdmin
 from contact.filters import ContactListFilter
 from contact.forms import ContactCreateUpdateForm, PhoneCreateUpdateForm, EmailCreateUpdateForm
 from contact.helpers import get_phones_or_emails_string

@@ -1,4 +1,5 @@
-{% load static%}
+{% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="{{LANGUAGE_CODE}}">
@@ -13,11 +14,12 @@
 
 
     {% block stylesheets %}
-
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
               type="text/css">
-        <link href="{% static 'css/dj-address-book.css' %}" rel="stylesheet">
+        <script src="{% static 'js/vendor/jquery.min.js' %}?v={{ VERSION }}"></script>
+        <link href="{% static 'css/dj-address-book.css' %}?v={{ VERSION }}" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
 
     {% endblock stylesheets %}
@@ -45,11 +47,9 @@
 
 {% block body_scripts %}
     <!-- Core plugin JavaScript-->
-    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'js/vendor/dj-address-book.js' %}}"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'js/vendor/bootstrap.bundle.min.js' %}?v={{ VERSION }}"></script>
+    <script src="{% static 'js/vendor/jquery.easing.min.js' %}?v={{ VERSION }}"></script>
+    <script src="{% static 'js/vendor/dj-address-book.min.js' %}}?v={{ VERSION }}"></script>
 {% endblock body_scripts %}
 
 {% block body_scripts_additional %}{% endblock body_scripts_additional %}

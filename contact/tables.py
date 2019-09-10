@@ -6,9 +6,9 @@ from contact.models import Contact, Phone, Email, SocialProfile
 class ContactTable(tables.Table):
     actions = tables.TemplateColumn(template_name='contact/table_actions.html', verbose_name="Actions",
                                     orderable=False)
-    phones = tables.Column(accessor='phone_set.all')
-    emails = tables.Column(accessor='email_set.all')
-    social_profiles = tables.Column(accessor='socialprofile_set.all')
+    phones = tables.Column(accessor='phone_set.all', orderable=False)
+    emails = tables.Column(accessor='email_set.all', orderable=False)
+    social_profiles = tables.Column(accessor='socialprofile_set.all', orderable=False)
 
     class Meta:
         model = Contact
