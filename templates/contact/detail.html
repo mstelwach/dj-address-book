@@ -7,7 +7,6 @@
 <div class="row mb-4">
     <div class="col-sm-12">
         <div class="float-right">
-{#            <a class="btn btn-secondary" href="{% url 'con:send-password' pk=object.pk %}">Send password</a>#}
             <a class="btn btn-secondary" href="{% url 'contact:update' pk=object.pk %}">Edit</a>
 
         </div>
@@ -24,12 +23,24 @@
             <div class="col-sm-9">{{ object.last_name }}</div>
         </div>
         <div class="form-group row">
+            <div class="col-sm-3">Birth year:</div>
+            <div class="col-sm-9">{{ object.birth_year }}</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">Site url:</div>
+            <div class="col-sm-9">{{ object.site_url }}</div>
+        </div>
+        <div class="form-group row">
             <div class="col-sm-3">Phones:</div>
             <div class="col-sm-9">{{ phones }}</div>
         </div>
         <div class="form-group row">
             <div class="col-sm-3">Emails:</div>
             <div class="col-sm-9">{{ emails }}</div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">Social profiles:</div>
+            <div class="col-sm-9">{{ social_profiles }}</div>
         </div>
 
 {% endblock detail-content %}

@@ -3,14 +3,14 @@ import csv
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DeleteView, DetailView, UpdateView
 from django_tables2 import RequestConfig
 
 from contact.admin import ContactAdmin
 from contact.filters import ContactListFilter
-from contact.forms import ContactCreateUpdateForm
+from contact.forms import ContactCreateUpdateForm, PhoneCreateUpdateForm, EmailCreateUpdateForm
 from contact.helpers import get_phones_or_emails_string
 from contact.models import Contact, Phone, Email
 from contact.tables import ContactTable, PhoneTable, EmailTable
@@ -70,6 +70,7 @@ class ContactDetailView(LoginRequiredMixin, DetailView):
         contact = self.object
         context['phones'] = get_phones_or_emails_string(Phone, contact, 'phone')
         context['emails'] = get_phones_or_emails_string(Email, contact, 'email')
+        context['social_profiles'] = ', '.join(contact.socialprofile_set.all())
         return context
 
 
@@ -116,7 +117,7 @@ class ContactDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
 class PhoneCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Phone
-    fields = ['phone']
+    form_class = PhoneCreateUpdateForm
     template_name = 'contact/phone/create.html'
     success_message = "The phone record was created successfully."
 
@@ -137,7 +138,7 @@ class PhoneCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class PhoneUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Phone
-    fields = ['phone']
+    form_class = PhoneCreateUpdateForm
     template_name = 'contact/phone/update.html'
     success_message = "The phone record was updated successfully."
 
@@ -173,7 +174,7 @@ class PhoneDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
 class EmailCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Email
-    fields = ['email']
+    form_class = EmailCreateUpdateForm
     template_name = 'contact/email/create.html'
     success_message = "The e-mail record was created successfully."
 
@@ -191,7 +192,7 @@ class EmailCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class EmailUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Email
-    fields = ['email']
+    form_class = EmailCreateUpdateForm
     template_name = 'contact/email/update.html'
     success_message = "The e-mail record was updated successfully."
 
