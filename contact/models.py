@@ -54,7 +54,7 @@ class Email(models.Model):
 SOCIAL_PROFILES = [
     ('twitter', 'Twitter'),
     ('facebook', 'Facebook'),
-    ('linkedln', 'Linkedln'),
+    ('linkedin', 'Linkedin'),
     ('instagram', 'Instagram')
 ]
 

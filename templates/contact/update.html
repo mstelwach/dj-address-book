@@ -14,13 +14,6 @@
     </div>
 </form>
 
-    <script>
-      $( function() {
-          $('#datepicker').attr('autocomplete', 'off');
-          $("#datepicker").datepicker();
-      } );
-    </script>
-
 {% endblock form-content %}
 
 {% block table-header %}
@@ -47,3 +40,15 @@
     <br>
     {% render_table social_profile_table %}
 {% endblock table-render %}
+
+{% block body_scripts_additional %}
+    <script>
+      $( function() {
+          $('#datepicker').attr('autocomplete', 'off');
+          $("#datepicker").datepicker({
+              autoclose: true,
+          });
+          $('#datepicker').addClass('select2-custom-style');
+      } );
+    </script>
+{% endblock %}

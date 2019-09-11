@@ -14,6 +14,9 @@
     <a href="{% url 'contact:email-create' record.pk %}" data-toggle="tooltip" data-placement="bottom"
        title="Add Email"><i class="fa fa-fw fa-envelope-o"></i></a>
 
+    <a href="{% url 'contact:social-profile-create' record.pk %}" data-toggle="tooltip" data-placement="bottom"
+       title="Delete"><i class="fa fa-fw fa-user-plus"></i></a>
+
     <a href="{% url 'contact:delete' record.pk %}" data-toggle="tooltip" data-placement="bottom"
        title="Delete"><i class="fa fa-fw fa-trash"></i></a>
 

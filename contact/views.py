@@ -3,13 +3,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.utils.html import format_html
 from django.views.generic import ListView, CreateView, DeleteView, DetailView, UpdateView
 from django_tables2 import RequestConfig
 
 from contact.filters import ContactListFilter
 from contact.forms import ContactCreateUpdateForm, PhoneCreateUpdateForm, EmailCreateUpdateForm, \
     SocialProfileCreateUpdateForm
-from contact.helpers import get_phones_or_emails_string
+from contact.helpers import get_model_string
 from contact.models import Contact, Phone, Email, SocialProfile
 from contact.tables import ContactTable, PhoneTable, EmailTable, SocialProfileTable
 
@@ -66,9 +67,12 @@ class ContactDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super(ContactDetailView, self).get_context_data(**kwargs)
         contact = self.object
-        context['phones'] = get_phones_or_emails_string(Phone, contact, 'phone')
-        context['emails'] = get_phones_or_emails_string(Email, contact, 'email')
-        context['social_profiles'] = ', '.join(contact.socialprofile_set.all())
+        context['phones'] = get_model_string(Phone, contact, 'phone')
+        context['emails'] = get_model_string(Email, contact, 'email')
+        social_icon = '<a href="http://www.{}.com/{}"><i class="fa fa-fw fa-{}"></i></a>'
+        social_profiles = ' '.join([social_icon.format(social_profile.name, social_profile.profile, social_profile.name)
+                                    for social_profile in contact.socialprofile_set.all()])
+        context['social_profiles'] = format_html(social_profiles)
         return context
 
 

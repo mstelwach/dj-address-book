@@ -1,4 +1,5 @@
 import django_tables2 as tables
+from django.utils.html import format_html
 
 from contact.models import Contact, Phone, Email, SocialProfile
 
@@ -23,8 +24,10 @@ class ContactTable(tables.Table):
         return '{}'.format(emails)
 
     def render_social_profiles(self, record):
-        social_profiles = '. '.join([social_profile.name for social_profile in record.socialprofile_set.all()])
-        return '{}'.format(social_profiles)
+        social_icon = '<a href="http://www.{}.com/{}"><i class="fa fa-fw fa-{}"></i></a>'
+        social_profiles = ' '.join([social_icon.format(social_profile.name, social_profile.profile, social_profile.name)
+                                    for social_profile in record.socialprofile_set.all()])
+        return format_html(social_profiles)
 
 
 class PhoneTable(tables.Table):
