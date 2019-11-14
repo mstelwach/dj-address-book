@@ -15,9 +15,6 @@ echo "Instaluję niezbędne narzędzia do uruchomienia aplikacji"
 source ./venv/bin/activate
 pip3 install -r requirements.txt
 
-
-
-echo "Baza została utworzona"
 echo "Pierwsza migracja tabeli do bazy danych"
 python manage.py makemigrations
 python manage.py migrate
